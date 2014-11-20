@@ -3,6 +3,11 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema, ObjectId = Schema.ObjectId;
 
 var LocationSchema = new Schema({
+    title : {
+        type : String,
+        default : '',
+        required : true
+    },
     lat : {
         type : Number,
         default : 0
@@ -11,7 +16,11 @@ var LocationSchema = new Schema({
         type : Number,
         default : 0
     },
-    meta : Schema.Types.Mixed
+    meta : Schema.Types.Mixed,
+    formId : {
+        type : Number,
+        default : 0
+    }
 });
 
 //LocationSchema.plugin(userPlugin, {});
@@ -24,4 +33,4 @@ LocationSchema.static({
 
 });
 
-module.exports = mongoose.model('Location', LocationSchema); 
+module.exports = mongoose.model('Location', LocationSchema);

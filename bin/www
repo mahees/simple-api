@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+var app = require('../app');
+var mongoose = require('mongoose');
+
+app.set('port', process.env.PORT || 3000);
+
+mongoose.connect('mongodb://localhost/map-ninja');
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback() {
+	var server = app.listen(app.get('port'), function() {
+	  console.log('Express server listening on port ' + server.address().port);
+	});
+});

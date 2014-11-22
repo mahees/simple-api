@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 
 app.set('port', process.env.PORT || 3000);
 
-mongoose.connect('mongodb://192.168.1.102/map-ninja');
+mongoose.connect('mongodb://db/map-ninja');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
